@@ -32,11 +32,30 @@ public class Practice {
                     break;
                 }
             }
-
+            
+         
             root.left=reConstructBinaryTree(Arrays.copyOfRange(pre,1,index+1),Arrays.copyOfRange(in,0,index));
             root.right=reConstructBinaryTree(Arrays.copyOfRange(pre,index+1,pre.length),Arrays.copyOfRange(in,index+1,in.length));
 
             return root;
+        }
+        
+         //获取根节点到某一个节点的路径
+        public boolean getNodePath(Node Tree,int key,Stack path){
+            path.push(Tree.data);
+
+            if (Tree.data == key)
+                return true;
+
+            boolean found = false;
+            if (Tree.left != null)
+                found = getNodePath(Tree.left,key,path);
+            if (!found && Tree.right != null)
+                found = getNodePath(Tree.right,key,path);
+            if (!found)
+                path.pop();
+
+            return found;
         }
 
         //前序遍历{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}
