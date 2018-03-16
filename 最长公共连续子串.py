@@ -7,7 +7,7 @@
 def getNumofCommonSubstr(str1, str2):
     lstr1 = len(str1)
     lstr2 = len(str2)
-    record = [[0 for i in range(lstr2 )] for j in range(lstr1)]  # 多一位
+    record = [[0 for i in range(lstr2 )] for j in range(lstr1)]
     maxNum = 0  # 最长匹配长度
     p = 0  # 匹配的起始位
 
