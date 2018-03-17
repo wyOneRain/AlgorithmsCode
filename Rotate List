@@ -1,0 +1,45 @@
+/*
+Given a list, rotate the list to the right by k places, where k is non-negative.
+
+Example: 
+Given 1->2->3->4->5->NULL and k = 2,
+return 4->5->1->2->3->NULL.
+*/
+
+/*
+中心新思想：将单链表设置成循环链表，并根据k值重新设置头结点位置
+*/
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head==null || head.next==null )
+            return head;
+            
+        ListNode currentNode = head;
+        int len = 1;
+        while(currentNode.next != null) {   
+            currentNode = currentNode.next;
+            len++;
+        }
+            
+        k%=len;
+        currentNode.next=head;//将末尾节点的next指向头结点，形成循环链表
+        
+        for(int i = len;i>k;i--)
+            currentNode=currentNode.next;
+        head=currentNode.next;//设置头结点位置
+        currentNode.next=null;
+        return head;
+        
+        
+    }
+}
