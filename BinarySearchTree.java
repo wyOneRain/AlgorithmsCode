@@ -104,4 +104,12 @@ public class BST {
             System.out.print(rootNode.data + " ");
         }
     }
+    
+    //返回二叉树树的最大深度
+    public int maxDepth(TreeNode root) {
+        if (root == null)
+            return 0;
+        return 1 + Math.max(maxDepth(root.left),maxDepth(root.right));
+        
+    }
 }
