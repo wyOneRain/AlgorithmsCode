@@ -1,6 +1,3 @@
-
-
-
 /*
 Given a binary tree 
     struct TreeLinkNode {
