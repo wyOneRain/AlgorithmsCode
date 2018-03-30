@@ -1,3 +1,6 @@
+
+
+
 /*
 Given a binary tree 
     struct TreeLinkNode {
@@ -63,5 +66,20 @@ public class Solution {
                     cur.next = path.peek();
             }
         }
+    }
+}
+
+
+//评论区一位大佬的解法
+
+public void connect(TreeLinkNode root) {
+    while(root != null && root.left != null) {
+        TreeLinkNode cur = root;
+        while(cur != null) {
+            cur.left.next = cur.right;
+            cur.right.next = cur.next == null ? null : cur.next.left;
+            cur = cur.next;
+        }
+        root = root.left;
     }
 }
