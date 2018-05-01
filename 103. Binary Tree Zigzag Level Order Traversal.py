@@ -17,7 +17,6 @@ return its zigzag level order traversal as:
 '''
 
 #层次遍历的一个变种，增加一个标志来判断是否变向
-#想到如果用java的话可能需要两个stack来维护...
 
 
 # Definition for a binary tree node.
