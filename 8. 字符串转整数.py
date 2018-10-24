@@ -67,7 +67,3 @@ class Solution:
             total = total *10 + digit
             index = index + 1
         return total * sign
-
-str = "-91283472332"
-s = Solution()
-print(s.myAtoi(str))
